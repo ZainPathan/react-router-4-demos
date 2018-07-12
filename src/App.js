@@ -8,6 +8,7 @@ import Home from './components/HomeComponent';
 import Hello from './components/HelloComponent';
 import About from './components/AboutComponent';
 import Books from './components/BooksComponent';
+import NoMatch from './components/NoMatchComponent';
 class App extends Component {
   render() {
     return (
@@ -38,6 +39,9 @@ class App extends Component {
             <Route path='/hello' component={Hello} />
             <Route path='/about' component={About} />
             <Route path='/books' component={Books} />
+            {/* No Match route specified - to be rendered when no route is matched
+            Works only with Switch */}
+            <Route component={NoMatch} />
           </Switch>
       </div>
       </Router>

@@ -23,25 +23,22 @@ class App extends Component {
             </ul>
           </div>
 
-          <Route path='/' exact={true} component={Home} />
-          <Route path='/hello' component={Hello} />
-          <Route path='/hello/goodmorning' render={ () => {
-            return (
-              <div className='jumbotron'>
-                <h1 className='display-3'>Hello Good Morning!</h1>
-              </div>
-            )
-          }} />
-          <Route path='/about' component={About} />
-          <Route path='/books' component={Books} />
-
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
+        {/* Using Switch only one route is matched and not multiple routes i.e. only one route is rendered */}
+          <Switch>
+            <Route path='/' exact={true} component={Home} />
+            {/* Ordering of routes matter - if /hello was before this, then it would always be rendered
+            and /hello/goodmorning would never be rendered */}
+            <Route path='/hello/goodmorning' render={ () => {
+              return (
+                <div className='jumbotron'>
+                  <h1 className='display-3'>Hello Good Morning!</h1>
+                </div>
+              )
+            }} />
+            <Route path='/hello' component={Hello} />
+            <Route path='/about' component={About} />
+            <Route path='/books' component={Books} />
+          </Switch>
       </div>
       </Router>
     );

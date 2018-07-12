@@ -26,6 +26,7 @@ const Books = (props) => {
                             <li><Link to={`${match.url}/html`}>HTML</Link></li>
                             <li><Link to={`${match.url}/css`}>CSS</Link></li>
                             <li><Link to={`${match.url}/react`}>React</Link></li>
+                            <li><Link to={`${match.url}/custom`}>Custom Link with URL params</Link></li>
                         </ul>
                     </div>
                     <div className='col-md-9'>
@@ -47,11 +48,18 @@ const Books = (props) => {
                                 <h1>React Books</h1>
                             );
                         }}/>
+                        <Route path={`${match.path}/:id`} component={Child} />
                     </div>
                 </div>
             </div>
         </div>        
     );
 };
+
+const Child = ( props ) => {
+    return (
+        <h1>URL ID parameter : {props.match.params.id}</h1>
+    )
+}
 
 export default Books;

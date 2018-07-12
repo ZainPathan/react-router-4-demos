@@ -17,6 +17,7 @@ class App extends Component {
             <ul>
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/hello'>Hello</Link></li>
+              <li><Link to='/hello/goodmorning'>Hello GM</Link></li>
               <li><Link to='/about'>About</Link></li>
               <li><Link to='/books'>Books</Link></li>
             </ul>
@@ -24,6 +25,13 @@ class App extends Component {
 
           <Route path='/' exact={true} component={Home} />
           <Route path='/hello' component={Hello} />
+          <Route path='/hello/goodmorning' render={ () => {
+            return (
+              <div className='jumbotron'>
+                <h1 className='display-3'>Hello Good Morning!</h1>
+              </div>
+            )
+          }} />
           <Route path='/about' component={About} />
           <Route path='/books' component={Books} />
 
